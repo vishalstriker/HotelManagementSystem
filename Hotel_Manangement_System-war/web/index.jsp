@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Hotel Management System</title>
         
         <head>
 		<title></title>
@@ -42,20 +42,20 @@
 				<div class="main">
 <!-- header -->
 					<header>
-						<h1><a href="index.html" id="logo">LoungeHotel</a></h1>
+						<h1><a href="index.jsp" id="logo">LoungeHotel</a></h1>
 						<div class="department">
-							9863 - 9867 Mill Road, LA, MG09 99HT<br>
-							<span>Freephone: &nbsp;  +1 800 559 6580</span>
+							Humber Blvd<br>
+							<span>Toll free: &nbsp;  +1 800 989 9876</span>
 						</div>
 					</header>
-					<div class="box"><div class="ic">More Website Templates @ TemplateMonster.com - October 24, 2011!</div>
+					<div class="box">
 						<nav>
 							<ul id="menu">
 								<li class="active"><a href="index.html">About Us</a></li>
-								<li><a href="Services.html">Services</a></li>
-								<li><a href="Booking.html">Booking</a></li>
-								<li><a href="Rooms.html">Rooms</a></li>
-								<li><a href="Locations.html">Locations</a></li>
+								<li><a href="Services.jsp">Services</a></li>
+								<li><a href="Booking.jsp">Booking</a></li>
+								<li><a href="Rooms.jsp">Rooms</a></li>
+								<li><a href="Locations.jsp">Locations</a></li>
 							</ul>
 						</nav>
 <!-- header end -->
@@ -115,44 +115,20 @@
 									<div class="line1"><div class="wrapper line2">
 										<div class="col1">
 											<h2><img src="images/title_marker1.jpg" alt="">Best Rates</h2>
-											<p class="pad_bot1">Lounge Hotel is one of <a href="http://blog.templatemonster.com/free-website-templates/" target="_blank">free website templates</a> created by TemplateMonster.com team. This website template is optimized for 1280X1024 screen resolution. It is also XHTML &amp; CSS valid.</p>
-											<a href="#" class="color1">Read More</a>
+											
 										</div>
 										<div class="col1 pad_left1">
 											<h2><img src="images/title_marker2.jpg" alt="">Hotel Guide</h2>
-											<p class="pad_bot1"><a href="http://blog.templatemonster.com/2011/10/24/free-website-template-accordion-hotel/" target="_blank">Lounge Hotel Template</a> goes with 2 packages. PSD source files are available for free for the registered members of Templates.com. Basic package is available for anyone without registration.</p>
-											<a href="#" class="color1">Read More</a>
+											
 										</div>
 										<div class="col1 pad_left1">
 											<h2><img src="images/title_marker3.jpg" alt="">Packages</h2>
-											<p class="pad_bot1">This Lounge Hotel website template has several pages: <a href="index.html">About Us</a>, <a href="Services.html">Services</a>, <a href="Booking.html">Booking</a>, <a href="Rooms.html">Our Rooms</a>, <a href="Locations.html">Contact Us</a> (note that contact us form – doesn’t work). Aliquip ex ea commodo consequat.</p>
-											<a href="#" class="color1">Read More</a>
+											
 										</div>
 									</div></div>
 								</div>
 							</div>
-							<div class="pad">
-								<div class="wrapper line3">
-									<div class="col2">
-										<h2>Welcome to Our Hotel!</h2>
-										<p class="pad_bot1"><strong class="color2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</strong><br>
-												Incididunt ut labore dolore magna. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-										<p class="pad_bot2">
-												Duis aute irure dolorin reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-										<a href="#" class="button1">Read More</a>
-									</div>
-									<div class="col1 pad_left1">
-										<h2>About Us</h2>
-										<div class="wrapper">
-											<figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
-											<p class="pad_bot1"><strong class="color2">10.10.2011</strong></p>
-											<p class="pad_bot2">
-													Lorem ipsum dolor sit amet, consectetur adipisicing elited do eiusmod tempor incididunt.</p>
-										</div>
-										<a href="#" class="button1">Read More</a>
-									</div>
-								</div>
-							</div>
+							
 						</article>
 <!--content end-->
 					</div>
@@ -163,14 +139,14 @@
 <!-- footer -->
 			<footer>
 				<div class="col2">
-					Lounge Hotel &copy; 2011 <a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com
+					Lounge Hotel &copy; 2011 <a rel="nofollow" href="index.jsp" >EJB Project by</a> by Vishal & Ashish
 					<nav>
 						<ul id="footer_menu">
-							<li class="active"><a href="index.html">About Us</a></li>
-							<li><a href="Services.html">Services</a></li>
-							<li><a href="Booking.html">Booking</a></li>
-							<li><a href="Rooms.html">Rooms</a></li>
-							<li class="last"><a href="Locations.html">Locations</a></li>
+							<li class="active"><a href="index.jsp">About Us</a></li>
+							<li><a href="Services.jsp">Services</a></li>
+							<li><a href="Booking.jsp">Booking</a></li>
+							<li><a href="Rooms.jsp">Rooms</a></li>
+							<li class="last"><a href="Locations.jsp">Locations</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -182,9 +158,9 @@
 						<li><a href="#" class="normaltip" title="Twitter"><img src="images/icon4.jpg" alt=""></a></li>
 					</ul>
 				</div>				
-				<!-- {%FOOTER_LINK} -->
+				
 			</footer>
-<!-- footer end -->
+
 		</div>
 		<script type="text/javascript"> Cufon.now(); </script>
 		<script>
