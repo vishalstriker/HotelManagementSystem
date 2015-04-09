@@ -96,91 +96,19 @@
 											</div>
 										</fieldset>
 									</form>
-									<div class="col2 pad">
-										<h2><img src="images/title_marker1.jpg" alt="">Best Propositions of This Month</h2>
-										<div class="wrapper line1">
-											<div class="col3">
-												<figure class="pad_bot3"><img src="images/page3_img1.jpg" alt=""></figure>
-												<p class="pad_bot1"><strong class="color3">Lorem ipsum dolor amet consectetur</strong></p>
-												<p>Adipisicing elito eiusmod tempor incididunt ut labore dolore magna.</p>
-												<ul class="list2">
-													<li><span>2</span>Rooms</li>
-													<li><span>4</span>Beds</li>
-												</ul>
-												<a href="#" class="button2">Book Room</a>
-											</div>
-											<div class="col3 pad_left2">
-												<figure class="pad_bot3"><img src="images/page3_img4.jpg" alt=""></figure>
-												<p class="pad_bot1"><strong class="color3">Lorem ipsum dolor amet consectetur</strong></p>
-												<p>Ut enim ad minim veniam nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-												<ul class="list2">
-													<li><span>2</span>Rooms</li>
-													<li><span>4</span>Beds</li>
-												</ul>
-												<a href="#" class="button2">Book Room</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="pad">
-								<div class="wrapper line3">
-									<div class="col2">
-										<h2>Quality Standards</h2>
-										<p class="pad_bot1"><strong class="color2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</strong> </p>
-										<p class="pad_bot1">
-												Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enigm ipsam voluptatem nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus quia voluptas sit aspernatur aut odit aut fugit.</p>
-										
-										<div class="wrapper pad_bot2">
-											<div class="col1">
-												<ul class="list1">
-													<li><a href="#">Inventore veritatis et quasi architecto</a></li>
-													<li><a href="#">Nemo enim ipsam voluptatem quivolupta</a></li>
-													<li><a href="#">Sit aspernatur aut odit aut fugit sed</a></li>
-												</ul>
-											</div>
-											<div class="col1 pad_left1">
-												<ul class="list1">
-													<li><a href="#">Neque porro quisquam est, qui dolorem</a></li>
-													<li><a href="#">Ipsum quia dolor amet consectetur</a></li>
-													<li><a href="#">Adipisci velit, sed quia non numquam</a></li>
-												</ul>
-											</div>
-										</div>
-										<p class="pad_bot1"><strong class="color2">Duis aute irure dolorin reprehenderit in voluptate velit esse cillum dolore eu fugiat pariatur</strong></p>
-										Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-									</div>
-									<div class="col1 pad_left1">
-										<h2>The Rooms</h2>
-										<p class="pad_bot1"><strong class="color2">Nemo enim ipsam voluptatem</strong><br>Quia voluptas sit aspernatur aut odit autugit sed quia ne voluptatem nesciunt. </p>
-										<figure class="pad_bot3"><img src="images/page4_img1.jpg" alt=""></figure>
-										<ul class="list1 pad_bot3">
-											<li><a href="#">Neque porro quisquam est qui</a></li>
-											<li><a href="#">Dolorem ipsum quia dolor sit amet</a></li>
-											<li><a href="#">Consectetur adipisci velit sed</a></li>
-										</ul>
-										<a href="#" class="button1">Read More</a>
-									</div>
-								</div>
-							</div>
-						</article>
-<!--content end-->
 					</div>
-				</div>
-			</div>
-		</div>
 		<div class="main">
 <!-- footer -->
 			<footer>
 				<div class="col2">
-					Lounge Hotel &copy; 2011 <a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com
+					Lounge Hotel &copy; 2011 <a rel="nofollow" href="index.jsp" >EJB Project by</a> by Vishal & Ashish
 					<nav>
 						<ul id="footer_menu">
-							<li><a href="index.html">About Us</a></li>
-							<li><a href="Services.html">Services</a></li>
-							<li><a href="Booking.html">Booking</a></li>
-							<li class="active"><a href="Rooms.html">Rooms</a></li>
-							<li class="last"><a href="Locations.html">Locations</a></li>
+							<li class="active"><a href="index.jsp">About Us</a></li>
+							<li><a href="Services.jsp">Services</a></li>
+							<li><a href="Booking.jsp">Booking</a></li>
+							<li><a href="Rooms.jsp">Rooms</a></li>
+							<li class="last"><a href="Locations.jsp">Locations</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -192,10 +120,20 @@
 						<li><a href="#" class="normaltip" title="Twitter"><img src="images/icon4.jpg" alt=""></a></li>
 					</ul>
 				</div>				
-				<!-- {%FOOTER_LINK} -->
+				
 			</footer>
-<!-- footer end -->
+
 		</div>
 		<script type="text/javascript"> Cufon.now(); </script>
+		<script>
+			$(document).ready(function(){
+				$('.kwicks').kwicks({
+					max : 500,
+					spacing : 0,
+					event : 'mouseover'
+				});
+							   
+			})
+		</script>
 	</body>
 </html>

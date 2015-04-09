@@ -191,14 +191,14 @@
 <!-- footer -->
 			<footer>
 				<div class="col2">
-					Lounge Hotel &copy; 2011 <a rel="nofollow" href="http://www.templatemonster.com/" target="_blank">Website Template</a> by TemplateMonster.com
+					Lounge Hotel &copy; 2011 <a rel="nofollow" href="index.jsp" >EJB Project by</a> by Vishal & Ashish
 					<nav>
 						<ul id="footer_menu">
-							<li><a href="index.html">About Us</a></li>
-							<li><a href="Services.html">Services</a></li>
-							<li class="active"><a href="Booking.html">Booking</a></li>
-							<li><a href="Rooms.html">Rooms</a></li>
-							<li class="last"><a href="Locations.html">Locations</a></li>
+							<li class="active"><a href="index.jsp">About Us</a></li>
+							<li><a href="Services.jsp">Services</a></li>
+							<li><a href="Booking.jsp">Booking</a></li>
+							<li><a href="Rooms.jsp">Rooms</a></li>
+							<li class="last"><a href="Locations.jsp">Locations</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -210,10 +210,20 @@
 						<li><a href="#" class="normaltip" title="Twitter"><img src="images/icon4.jpg" alt=""></a></li>
 					</ul>
 				</div>				
-				<!-- {%FOOTER_LINK} -->
+				
 			</footer>
-<!-- footer end -->
+
 		</div>
 		<script type="text/javascript"> Cufon.now(); </script>
+		<script>
+			$(document).ready(function(){
+				$('.kwicks').kwicks({
+					max : 500,
+					spacing : 0,
+					event : 'mouseover'
+				});
+							   
+			})
+		</script>
 	</body>
 </html>
