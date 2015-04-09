@@ -38,18 +38,18 @@
 					<header>
 						<h1><a href="index.html" id="logo">LoungeHotel</a></h1>
 						<div class="department">
-							9863 - 9867 Mill Road, LA, MG09 99HT<br>
-							<span>Freephone: &nbsp;  +1 800 559 6580</span>
+							Humber Blvd<br>
+							<span>Toll free: &nbsp;  +1 800 989 9876</span>
 						</div>
 					</header>
-					<div class="box"><div class="ic">More Website Templates @ TemplateMonster.com - October 24, 2011!</div>
+					<div class="box">
 						<nav>
 							<ul id="menu">
-								<li><a href="index.html">About Us</a></li>
-								<li><a href="Services.html">Services</a></li>
-								<li class="active"><a href="Booking.html">Booking</a></li>
-								<li><a href="Rooms.html">Rooms</a></li>
-								<li><a href="Locations.html">Locations</a></li>
+								<li class="active"><a href="index.html">About Us</a></li>
+								<li><a href="Services.jsp">Services</a></li>
+								<li><a href="Booking.jsp">Booking</a></li>
+								<li><a href="Rooms.jsp">Rooms</a></li>
+								<li><a href="Locations.jsp">Locations</a></li>
 							</ul>
 						</nav>
 <!-- header end -->
