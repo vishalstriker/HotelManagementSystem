@@ -5,7 +5,6 @@
 package Entity_Bean;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Collection;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,72 +21,79 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Userlogin.findAll", query = "SELECT u FROM Userlogin u"),
-    @NamedQuery(name = "Userlogin.findByLoginid", query = "SELECT u FROM Userlogin u WHERE u.loginid = :loginid"),
-    @NamedQuery(name = "Userlogin.findByUsername", query = "SELECT u FROM Userlogin u WHERE u.username = :username"),
+    @NamedQuery(name = "Userlogin.findByUserid", query = "SELECT u FROM Userlogin u WHERE u.userid = :userid"),
+    @NamedQuery(name = "Userlogin.findByFname", query = "SELECT u FROM Userlogin u WHERE u.fname = :fname"),
+    @NamedQuery(name = "Userlogin.findByLname", query = "SELECT u FROM Userlogin u WHERE u.lname = :lname"),
     @NamedQuery(name = "Userlogin.findByPassword", query = "SELECT u FROM Userlogin u WHERE u.password = :password"),
-    @NamedQuery(name = "Userlogin.findByEmailid", query = "SELECT u FROM Userlogin u WHERE u.emailid = :emailid"),
-    @NamedQuery(name = "Userlogin.findByUserType", query = "SELECT u FROM Userlogin u WHERE u.userType = :userType")})
+    @NamedQuery(name = "Userlogin.findByEmailid", query = "SELECT u FROM Userlogin u WHERE u.emailid = :emailid")})
 public class Userlogin implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "LOGINID")
-    private BigInteger loginid;
+    @Size(min = 1, max = 30)
+    @Column(name = "USERID")
+    private String userid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "USERNAME")
-    private String username;
+    @Column(name = "FNAME")
+    private String fname;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "LNAME")
+    private String lname;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "PASSWORD")
     private String password;
-    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "EMAILID")
     private String emailid;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "USER_TYPE")
-    private String userType;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "emailid")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userid")
     private Collection<Roombooking> roombookingCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "emailid")
-    private Collection<Roomservices> roomservicesCollection;
 
     public Userlogin() {
     }
 
-    public Userlogin(String emailid) {
-        this.emailid = emailid;
+    public Userlogin(String userid) {
+        this.userid = userid;
     }
 
-    public Userlogin(String emailid, BigInteger loginid, String username, String password, String userType) {
-        this.emailid = emailid;
-        this.loginid = loginid;
-        this.username = username;
+    public Userlogin(String userid, String fname, String lname, String password, String emailid) {
+        this.userid = userid;
+        this.fname = fname;
+        this.lname = lname;
         this.password = password;
-        this.userType = userType;
+        this.emailid = emailid;
     }
 
-    public BigInteger getLoginid() {
-        return loginid;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setLoginid(BigInteger loginid) {
-        this.loginid = loginid;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFname() {
+        return fname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public String getPassword() {
@@ -106,14 +112,6 @@ public class Userlogin implements Serializable {
         this.emailid = emailid;
     }
 
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
     @XmlTransient
     public Collection<Roombooking> getRoombookingCollection() {
         return roombookingCollection;
@@ -123,19 +121,10 @@ public class Userlogin implements Serializable {
         this.roombookingCollection = roombookingCollection;
     }
 
-    @XmlTransient
-    public Collection<Roomservices> getRoomservicesCollection() {
-        return roomservicesCollection;
-    }
-
-    public void setRoomservicesCollection(Collection<Roomservices> roomservicesCollection) {
-        this.roomservicesCollection = roomservicesCollection;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (emailid != null ? emailid.hashCode() : 0);
+        hash += (userid != null ? userid.hashCode() : 0);
         return hash;
     }
 
@@ -146,7 +135,7 @@ public class Userlogin implements Serializable {
             return false;
         }
         Userlogin other = (Userlogin) object;
-        if ((this.emailid == null && other.emailid != null) || (this.emailid != null && !this.emailid.equals(other.emailid))) {
+        if ((this.userid == null && other.userid != null) || (this.userid != null && !this.userid.equals(other.userid))) {
             return false;
         }
         return true;
@@ -154,7 +143,7 @@ public class Userlogin implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity_Bean.Userlogin[ emailid=" + emailid + " ]";
+        return "Entity_Bean.Userlogin[ userid=" + userid + " ]";
     }
     
 }

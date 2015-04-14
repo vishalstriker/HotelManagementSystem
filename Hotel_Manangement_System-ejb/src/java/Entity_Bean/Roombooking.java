@@ -5,15 +5,11 @@
 package Entity_Bean;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -25,22 +21,18 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Roombooking.findAll", query = "SELECT r FROM Roombooking r"),
     @NamedQuery(name = "Roombooking.findByBookingid", query = "SELECT r FROM Roombooking r WHERE r.bookingid = :bookingid"),
-    @NamedQuery(name = "Roombooking.findByRoomid", query = "SELECT r FROM Roombooking r WHERE r.roomid = :roomid"),
     @NamedQuery(name = "Roombooking.findByCheckin", query = "SELECT r FROM Roombooking r WHERE r.checkin = :checkin"),
     @NamedQuery(name = "Roombooking.findByCheckout", query = "SELECT r FROM Roombooking r WHERE r.checkout = :checkout"),
-    @NamedQuery(name = "Roombooking.findBySpecialservice", query = "SELECT r FROM Roombooking r WHERE r.specialservice = :specialservice")})
+    @NamedQuery(name = "Roombooking.findBySpecialservice", query = "SELECT r FROM Roombooking r WHERE r.specialservice = :specialservice"),
+    @NamedQuery(name = "Roombooking.findByEmailid", query = "SELECT r FROM Roombooking r WHERE r.emailid = :emailid")})
 public class Roombooking implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 5)
     @Column(name = "BOOKINGID")
-    private BigDecimal bookingid;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ROOMID")
-    private BigInteger roomid;
+    private String bookingid;
     @Basic(optional = false)
     @NotNull
     @Column(name = "CHECKIN")
@@ -53,44 +45,42 @@ public class Roombooking implements Serializable {
     private Date checkout;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 50)
     @Column(name = "SPECIALSERVICE")
     private String specialservice;
-    @JoinColumn(name = "EMAILID", referencedColumnName = "EMAILID")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "EMAILID")
+    private String emailid;
+    @JoinColumn(name = "USERID", referencedColumnName = "USERID")
     @ManyToOne(optional = false)
-    private Userlogin emailid;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookingid")
-    private Collection<Roomservices> roomservicesCollection;
+    private Userlogin userid;
+    @JoinColumn(name = "ROOMNO", referencedColumnName = "ROOMNO")
+    @ManyToOne(optional = false)
+    private Hotelroom roomno;
 
     public Roombooking() {
     }
 
-    public Roombooking(BigDecimal bookingid) {
+    public Roombooking(String bookingid) {
         this.bookingid = bookingid;
     }
 
-    public Roombooking(BigDecimal bookingid, BigInteger roomid, Date checkin, Date checkout, String specialservice) {
+    public Roombooking(String bookingid, Date checkin, Date checkout, String specialservice, String emailid) {
         this.bookingid = bookingid;
-        this.roomid = roomid;
         this.checkin = checkin;
         this.checkout = checkout;
         this.specialservice = specialservice;
+        this.emailid = emailid;
     }
 
-    public BigDecimal getBookingid() {
+    public String getBookingid() {
         return bookingid;
     }
 
-    public void setBookingid(BigDecimal bookingid) {
+    public void setBookingid(String bookingid) {
         this.bookingid = bookingid;
-    }
-
-    public BigInteger getRoomid() {
-        return roomid;
-    }
-
-    public void setRoomid(BigInteger roomid) {
-        this.roomid = roomid;
     }
 
     public Date getCheckin() {
@@ -117,21 +107,28 @@ public class Roombooking implements Serializable {
         this.specialservice = specialservice;
     }
 
-    public Userlogin getEmailid() {
+    public String getEmailid() {
         return emailid;
     }
 
-    public void setEmailid(Userlogin emailid) {
+    public void setEmailid(String emailid) {
         this.emailid = emailid;
     }
 
-    @XmlTransient
-    public Collection<Roomservices> getRoomservicesCollection() {
-        return roomservicesCollection;
+    public Userlogin getUserid() {
+        return userid;
     }
 
-    public void setRoomservicesCollection(Collection<Roomservices> roomservicesCollection) {
-        this.roomservicesCollection = roomservicesCollection;
+    public void setUserid(Userlogin userid) {
+        this.userid = userid;
+    }
+
+    public Hotelroom getRoomno() {
+        return roomno;
+    }
+
+    public void setRoomno(Hotelroom roomno) {
+        this.roomno = roomno;
     }
 
     @Override

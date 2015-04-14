@@ -5,7 +5,6 @@
 package Entity_Bean;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Collection;
 import javax.persistence.*;
@@ -23,31 +22,21 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Hotelroom.findAll", query = "SELECT h FROM Hotelroom h"),
-    @NamedQuery(name = "Hotelroom.findByRoomid", query = "SELECT h FROM Hotelroom h WHERE h.roomid = :roomid"),
     @NamedQuery(name = "Hotelroom.findByRoomno", query = "SELECT h FROM Hotelroom h WHERE h.roomno = :roomno"),
-    @NamedQuery(name = "Hotelroom.findByRoomsize", query = "SELECT h FROM Hotelroom h WHERE h.roomsize = :roomsize"),
     @NamedQuery(name = "Hotelroom.findByRoomtype", query = "SELECT h FROM Hotelroom h WHERE h.roomtype = :roomtype"),
     @NamedQuery(name = "Hotelroom.findByRoomprice", query = "SELECT h FROM Hotelroom h WHERE h.roomprice = :roomprice"),
     @NamedQuery(name = "Hotelroom.findByRoomdescription", query = "SELECT h FROM Hotelroom h WHERE h.roomdescription = :roomdescription"),
     @NamedQuery(name = "Hotelroom.findByRoomfloor", query = "SELECT h FROM Hotelroom h WHERE h.roomfloor = :roomfloor"),
-    @NamedQuery(name = "Hotelroom.findByRoomimage", query = "SELECT h FROM Hotelroom h WHERE h.roomimage = :roomimage")})
+    @NamedQuery(name = "Hotelroom.findByRoomimage", query = "SELECT h FROM Hotelroom h WHERE h.roomimage = :roomimage"),
+    @NamedQuery(name = "Hotelroom.findByIsavailable", query = "SELECT h FROM Hotelroom h WHERE h.isavailable = :isavailable")})
 public class Hotelroom implements Serializable {
     private static final long serialVersionUID = 1L;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ROOMID")
-    private BigDecimal roomid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "ROOMNO")
     private String roomno;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "ROOMSIZE")
-    private BigInteger roomsize;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
@@ -67,31 +56,23 @@ public class Hotelroom implements Serializable {
     @Size(max = 200)
     @Column(name = "ROOMIMAGE")
     private String roomimage;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roomid")
-    private Collection<Roomservices> roomservicesCollection;
+    @Column(name = "ISAVAILABLE")
+    private Character isavailable;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roomno")
+    private Collection<Roombooking> roombookingCollection;
 
     public Hotelroom() {
     }
 
-    public Hotelroom(BigDecimal roomid) {
-        this.roomid = roomid;
+    public Hotelroom(String roomno) {
+        this.roomno = roomno;
     }
 
-    public Hotelroom(BigDecimal roomid, String roomno, BigInteger roomsize, String roomtype, double roomprice, BigInteger roomfloor) {
-        this.roomid = roomid;
+    public Hotelroom(String roomno, String roomtype, double roomprice, BigInteger roomfloor) {
         this.roomno = roomno;
-        this.roomsize = roomsize;
         this.roomtype = roomtype;
         this.roomprice = roomprice;
         this.roomfloor = roomfloor;
-    }
-
-    public BigDecimal getRoomid() {
-        return roomid;
-    }
-
-    public void setRoomid(BigDecimal roomid) {
-        this.roomid = roomid;
     }
 
     public String getRoomno() {
@@ -100,14 +81,6 @@ public class Hotelroom implements Serializable {
 
     public void setRoomno(String roomno) {
         this.roomno = roomno;
-    }
-
-    public BigInteger getRoomsize() {
-        return roomsize;
-    }
-
-    public void setRoomsize(BigInteger roomsize) {
-        this.roomsize = roomsize;
     }
 
     public String getRoomtype() {
@@ -150,19 +123,27 @@ public class Hotelroom implements Serializable {
         this.roomimage = roomimage;
     }
 
-    @XmlTransient
-    public Collection<Roomservices> getRoomservicesCollection() {
-        return roomservicesCollection;
+    public Character getIsavailable() {
+        return isavailable;
     }
 
-    public void setRoomservicesCollection(Collection<Roomservices> roomservicesCollection) {
-        this.roomservicesCollection = roomservicesCollection;
+    public void setIsavailable(Character isavailable) {
+        this.isavailable = isavailable;
+    }
+
+    @XmlTransient
+    public Collection<Roombooking> getRoombookingCollection() {
+        return roombookingCollection;
+    }
+
+    public void setRoombookingCollection(Collection<Roombooking> roombookingCollection) {
+        this.roombookingCollection = roombookingCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (roomid != null ? roomid.hashCode() : 0);
+        hash += (roomno != null ? roomno.hashCode() : 0);
         return hash;
     }
 
@@ -173,7 +154,7 @@ public class Hotelroom implements Serializable {
             return false;
         }
         Hotelroom other = (Hotelroom) object;
-        if ((this.roomid == null && other.roomid != null) || (this.roomid != null && !this.roomid.equals(other.roomid))) {
+        if ((this.roomno == null && other.roomno != null) || (this.roomno != null && !this.roomno.equals(other.roomno))) {
             return false;
         }
         return true;
@@ -181,7 +162,7 @@ public class Hotelroom implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity_Bean.Hotelroom[ roomid=" + roomid + " ]";
+        return "Entity_Bean.Hotelroom[ roomno=" + roomno + " ]";
     }
     
 }
